@@ -1,0 +1,101 @@
+1/09/25
+    linked tree structure (see lecture slides or replay)
+    think of a family tree
+
+    if there is no entry, == null
+
+    tree traversals
+        A subtree is a tree struct that makes up a part of another
+        like the tree used in the alst assignment there is:
+            an inital yes/no from a root point
+        left and right CAN be accessed through recursion
+
+        Depth first search
+            pre order, from root, left to right
+                Visit node
+                Travese (Lchild)
+                Travese (Rchild)
+            in order, left subtree, then root, then right
+                Visit node
+                Travese (Lchild)
+                Visit node
+                Travese (Rchild)
+            post order, left to right, then root
+                Travese (Lchild)
+                Travese (Rchild)
+                Visit node
+        Breadth first search   
+            level order, each node at each level, from root (top) AND left to right
+                Requires extra use of data structs (queues and/or lists)
+    example: (preorder)
+        public void printAll (Person p){
+            if (P != null){ //if not the last one
+                UI.println(p)
+                printAll(p.getfather()); //traverse left first
+                printAll(p.getMother()); //traverse right second
+            }
+        }printAll(me) //me is root of tree
+    example: (postorder)
+        public void printAll (Person p){
+                if (P != null){ 
+                    UI.println(p)
+                    printAll(p.getMother()); //traverse right second
+                    printAll(p.getfather()); //traverse left first
+                }
+            }printAll(me) //me is root of tree
+            
+            mostly the same, just changes the order
+    example: (in order)
+        public void printAll (Person p){
+                if (P != null){ 
+                    printAll(p.getFather());
+                    UI.println("<" + p + ">")
+                    printAll(p.getMother)
+                }
+            }printAll(me) //me is root of tree
+    traversing with extra parameter
+         public void printAll (Person p, int later){
+                if (P != null){ 
+                    // visit node P
+                    UI.println(later + ":" + p)
+                    printAll(p.getfather(), layer + 1); //traverse left first
+                    printAll(p.getMother(), layer + 1); //traverse right second
+                }
+        }printAll(me,0)
+    traversing and collecting ans
+         public void printAll (Person p, int later, Set<Person> ans){
+                if (P != null){ 
+                    // visit node P
+                    if (p.getName().equals(name)) ans.add(p);
+
+                    printAll(p.getfather(), layer + 1); //traverse left first
+                    printAll(p.getMother(), layer + 1); //traverse right second
+                }
+        }
+        public Set<Person> findAll (Person p, String name){
+            Set<Person> ands - new HashSet<Person>();
+            finAll(me, "Jane",ans);
+            return ans
+        }
+
+2024T2
+    1
+        (a)
+            III (treeset) x
+            correct is treeset
+        (b)
+            LEARN PRIOROTY QUEUE
+        (c)
+            HashSet
+        (d)
+            st.pop() doesn't work
+
+            LEARN why .remove(object o) doesn't work
+
+    2
+
+        LEARN [] AND {} AND ()
+
+
+    3
+        
